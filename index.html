@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePlus | Hospital Appointment Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="#home" class="logo">🥼 Easy<span>Way</span></a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#booking">Book Appointment</a>
+      <a href="#my-appointments">My Appointments</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="tag">YOUR HEALTH, OUR PRIORITY</span>
+        <h1>Find the Right Doctor.<br>
+          <span>Feel Better.</span>
+        </h1>
+        <p>
+          Book appointments with trusted doctors and get
+          the care you deserve, whenever you need it.
+        </p>
+        <a href="#doctors" class="btn">Find a Doctor →</a>
+
+        <div class="hero-stats">
+          <div><strong>12+</strong><small>Doctors</small></div>
+          <div><strong>8+</strong><small>Specialities</small></div>
+          <div><strong>24/7</strong><small>Care support</small></div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=85"
+          alt="Doctor in a hospital"
+        >
+        <div class="image-note">
+          <span class="check-icon">✓</span>
+          <div>
+            <strong>Trusted Healthcare</strong>
+            <small>Your health comes first</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="doctors">
+      <div class="section-heading">
+        <span class="tag">OUR MEDICAL TEAM</span>
+        <h2>Meet Our Doctors</h2>
+        <p>Choose a specialist who is right for you.</p>
+      </div>
+
+      <div class="search-row">
+        <input
+          type="search"
+          id="doctorSearch"
+          placeholder="Search doctor or speciality..."
+          aria-label="Search doctors"
+        >
+
+        <select id="specialityFilter" aria-label="Filter by speciality">
+          <option value="All">All Specialities</option>
+        </select>
+      </div>
+
+      <div class="doctor-grid" id="doctorList"></div>
+    </section>
+
+    <section class="booking-section" id="booking">
+      <div class="booking-info">
+        <span class="tag">EASY ONLINE BOOKING</span>
+        <h2>Book Your Appointment</h2>
+        <p>
+          Complete the form to schedule your visit.
+          Choose your preferred doctor, date, and time.
+        </p>
+
+        <div class="info-item">
+          <span>✓</span>
+          <div>
+            <strong>Easy Booking</strong>
+            <p>Schedule your visit in a few steps.</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span>✓</span>
+          <div>
+            <strong>Choose Your Doctor</strong>
+            <p>Explore available medical specialists.</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span>✓</span>
+          <div>
+            <strong>Manage Appointments</strong>
+            <p>View or cancel your bookings.</p>
+          </div>
+        </div>
+      </div>
+
+      <form id="appointmentForm" class="booking-form">
+        <h3>Patient Details</h3>
+
+        <label for="patientName">Full Name</label>
+        <input
+          type="text"
+          id="patientName"
+          placeholder="Enter your full name"
+          minlength="2"
+          maxlength="80"
+          required
+        >
+
+        <div class="form-row">
+          <div>
+            <label for="patientAge">Age</label>
+            <input
+              type="number"
+              id="patientAge"
+              placeholder="Age"
+              min="1"
+              max="120"
+              required
+            >
+          </div>
+
+          <div>
+            <label for="patientGender">Gender</label>
+            <select id="patientGender" required>
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="patientPhone">Phone Number</label>
+        <input
+          type="tel"
+          id="patientPhone"
+          placeholder="10-digit mobile number"
+          inputmode="numeric"
+          pattern="[6-9][0-9]{9}"
+          maxlength="10"
+          required
+        >
+        
+        <label for="Email">Email</label>
+        <input
+          type="email"
+          id="Email"
+          placeholder="Enter your Email address"
+          required
+        >
+
+        <label for="doctorSelect">Select Doctor</label>
+        <select id="doctorSelect" required>
+          <option value="">Choose a doctor</option>
+        </select>
+
+        <div class="form-row">
+          <div>
+            <label for="appointmentDate">Appointment Date</label>
+            <input type="date" id="appointmentDate" required>
+          </div>
+
+          <div>
+            <label for="appointmentTime">Time Slot</label>
+            <select id="appointmentTime" required>
+              <option value="">Select time</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="reason">Reason for Visit</label>
+        <textarea
+          id="reason"
+          rows="3"
+          maxlength="300"
+          placeholder="Briefly describe your reason for visiting (optional)"
+        ></textarea>
+
+        <div class="fee-box">
+          <span>Consultation Fee</span>
+          <strong id="consultationFee">Select a doctor</strong>
+        </div>
+
+        <button type="submit" class="btn submit-btn">
+          Confirm Appointment →
+        </button>
+
+        <p class="form-note">
+          Demo project: bookings are stored in this browser only.
+        </p>
+      </form>
+    </section>
+
+    <section class="section appointments-section" id="my-appointments">
+      <div class="section-heading">
+        <span class="tag">YOUR BOOKINGS</span>
+        <h2>My Appointments</h2>
+        <p>View and manage your scheduled visits.</p>
+      </div>
+
+      <div class="appointment-summary">
+        <div class="summary-card">
+          <span>Total Bookings</span>
+          <strong id="totalBookings">0</strong>
+        </div>
+        <div class="summary-card">
+          <span>Upcoming Visits</span>
+          <strong id="upcomingBookings">0</strong>
+        </div>
+      </div>
+
+      <div id="appointmentList" class="appointment-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#home" class="logo">✚ Care<span>Plus</span></a>
+    <p>Healthcare made simpler. Take care of yourself.</p>
+    <small>© <span id="currentYear"></span> CarePlus. Educational demo project.</small>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
